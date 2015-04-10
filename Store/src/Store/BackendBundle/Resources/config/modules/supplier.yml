@@ -1,0 +1,18 @@
+
+store_backend_supplier_list:
+    path:     /list
+    defaults: { _controller: StoreBackendBundle:Supplier:list }
+
+
+store_backend_supplier_view:
+    path:     /view/{id}/{name}
+    defaults: { _controller: StoreBackendBundle:Supplier:view }
+    requirements:
+     id: \d+  #on ne veut que les nombre numberic d = digital
+     _method: GET   #on ne veut que le GET couche de secutité des le routing
+
+
+store_backend_supplier_remove:
+    path:     /remove/{id}
+    defaults: { _controller: StoreBackendBundle:Supplier:remove }
+

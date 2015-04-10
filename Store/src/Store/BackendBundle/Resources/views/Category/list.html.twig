@@ -1,0 +1,48 @@
+{%  extends "StoreBackendBundle::layout.html.twig" %}
+
+{% block titlepage %}
+    Categories
+{% endblock %}
+
+{% block content %}
+    <!-- Primary table -->
+    <div class="table-primary">
+        <div class="table-header">
+            <div class="table-caption">
+                Mes catégories
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>Catégorie</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+
+    <ul>
+        <script>
+            init.push(function(){
+                $( "#ui-menu-demo" ).menu();
+            });
+        </script>
+        {% for category in categories %}
+            <tbody>
+            <tr>
+                <td><a href="{{ path('store_backend_category_view', {'name': category.id, 'id':category.id}) }}">{{ category.id }}</a></td>
+                <td>{{ category.title }}</td>
+                <td>{{ category.description }}</td>
+                <td><a href="{{ path('store_backend_category_remove', {'id':category.id}) }}">Supprimer</a></td>
+            </tr>
+            </tbody>
+        {% endfor %}
+        </table>
+        <div class="table-footer">
+            Footer
+        </div>
+    </div>
+{% endblock %}
+

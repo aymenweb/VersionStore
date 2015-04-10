@@ -1,0 +1,24 @@
+{%  extends "StoreBackendBundle::layout.html.twig" %}
+
+{% block titlepage %}
+    Suppliers
+{% endblock %}
+
+{% block content %}
+    <h1>Liste De Mes Suppliers</h1>
+
+
+    {% for supplier in suppliers %}
+        <a href="{{ path('store_backend_supplier_view', {'name': supplier.name, 'id':supplier.id}) }}">{{ supplier.name }}</a>
+        <p>{{ supplier.id }}</p>
+        <p>{{ supplier.description }}</p>
+        <a href="{{ path('store_backend_supplier_remove', {'id':supplier.id}) }}">Suppression Du Supplier</a>
+        <br/>
+
+        {% if supplier.active == 0 %}
+            <i class="fa fa-time"></i>
+        {% else %}
+            <i class="fa fa-check"></i>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

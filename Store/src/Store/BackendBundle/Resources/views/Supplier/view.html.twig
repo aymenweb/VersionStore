@@ -1,0 +1,12 @@
+{%  extends "StoreBackendBundle::layout.html.twig" %}
+
+{% block titlepage %}
+    Suppliers
+{% endblock %}
+
+{% block content %}
+    <h1>View D'un Supplier</h1>
+    <p>ID:{{ supplier.id }}</p>
+    <p>Nom: {{ supplier.name }}</p>
+    <p>Nom: {{ supplier.description }}</p>
+{% endblock %}

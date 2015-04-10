@@ -1,0 +1,95 @@
+{%  extends "StoreBackendBundle::layout.html.twig" %}
+
+{% block titlepage %}
+    Products
+{% endblock %}
+
+{% block content %}
+    <h1>Liste de mes Produits</h1>
+
+    {#Boucle sur mes produits ou product est la clef#}
+    {% for product in products %}
+        <a href="{{ path('store_backend_product_view', {'name': product.title, 'id':product.id}) }}">{{ product.title }}</a>
+        - <i>{{ product.dateCreated|date('d/m/Y') }}</i>
+        <a href="{{ path('store_backend_product_remove', {'id':product.id}) }}">Suppression Du Produit</a>
+        {% if product.active == 0 %}
+            <i class="fa fa-time"></i>
+        {% else %}
+            <i class="fa fa-check"></i>
+        {% endif %}
+
+        {#{{ dump(product) }}#}
+
+
+
+        <p>{{ product.ref}}</p> {#affiche la ref produit#}
+        <p>{{ product.title }}</p>
+        <p>{{ product.price }}</p>
+        <p>{{ product.description }}</p>
+        <p>{{ product.taxe }}</p>
+        <p>{{ product.summary }}</p>
+        <p>{{ product.composition }}</p>
+        <p>{{ product.quantity}}</p>
+        <p>Le titre du bijoutier du produit: {{ product.jeweler.title }}</p>
+        <p>L'email du bijoutier du produit: {{ product.jeweler.email }}</p>
+
+        <h3>Promotion</h3>
+        <ul>
+            {% for business in product.business %}
+            <li>
+                Montant: {{ business.amount }}
+                Type de Promotion: {{ business.message }}
+
+            </li>
+            {% endfor %}
+        </ul>
+        <h3>Category</h3>
+        <ul>
+            {% for category in product.category %}
+            <li>
+                Category: {{ category.title }}
+            </li>
+            {% endfor %}
+        </ul>
+
+        <h3>CMS</h3>
+        <ul>
+            {% for cms in product.cms %}
+            <li>
+                CMS: {{ cms.title }}
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-dark">Aucun Produit</div>
+    {% endfor %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

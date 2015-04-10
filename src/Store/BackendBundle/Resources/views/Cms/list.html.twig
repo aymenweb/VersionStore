@@ -1,0 +1,28 @@
+{%  extends "StoreBackendBundle::layout.html.twig" %}
+
+{% block titlepage %}
+    CMS
+{% endblock %}
+
+{% block content %}
+    <h1>Liste de mes CMS</h1>
+    <ul>
+        {% for cms in Cms %}
+            <li>
+                CMS: {{ cms.title }}
+                CMS:<a href="{{ path('store_backend_cms_view', {'name': cms.title, 'id':cms.id}) }}">{{ cms.title }}</a>
+             </li>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Default&nbsp;<i class="fa fa-caret-down"></i></button>
+                <ul class="dropdown-menu">
+                    <li><a href="{{ path('store_backend_cms_view', {'name': cms.title, 'id':cms.id}) }}">VOIR</a></li>
+                    <li><a href="#">Editer</a></li>
+                    <li><a href="#">Supprimer</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </div>
+
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,18 @@
+{%  extends "StoreBackendBundle::layout.html.twig" %}
+
+{% block titlepage %}
+    Categories
+{% endblock %}
+
+{% block content %}
+    <h1>Liste de mes catégories</h1>
+    <ul>
+        {% for category in categories %}
+            <li>
+                Category:<a href="{{ path('store_backend_category_view', {'name': category.title, 'id':category.id}) }}">{{ category.title }}</a>
+                <a href="{{ path('store_backend_category_remove', {'id':category.id}) }}">Suppression De La Category</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+

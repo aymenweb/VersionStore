@@ -1,0 +1,32 @@
+store_backend_statics:
+    resource: "@StoreBackendBundle/Resources/config/statics.yml"
+    prefix:   /
+
+store_backend_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: StoreBackendBundle:Default:index }
+
+#nom de la route appelée
+store_backend_index:
+    path:     /dashboard #chemin uri de la route
+    defaults: { _controller: StoreBackendBundle:Main:index } #le controlleur et l action
+
+#Page Products
+store_backend_products:
+    resource: "@StoreBackendBundle/Resources/config/modules/product.yml"
+    prefix:   /products
+
+#Page category
+store_backend_categories:
+    resource: "@StoreBackendBundle/Resources/config/modules/category.yml"
+    prefix:   /categories
+
+#Page CMS
+store_backend_cms:
+    resource: "@StoreBackendBundle/Resources/config/modules/cms.yml"
+    prefix:   /cms
+
+#Page Suppliers
+store_backend_suppliers:
+    resource: "@StoreBackendBundle/Resources/config/modules/supplier.yml"
+    prefix:   /suppliers

@@ -1,0 +1,12 @@
+
+store_backend_cms_list:
+    path:     /list
+    defaults: { _controller: StoreBackendBundle:Cms:list }
+
+
+store_backend_cms_view:
+    path:     /view/{id}/{name}
+    defaults: { _controller: StoreBackendBundle:Cms:view }
+    requirements:
+     id: \d+  #on ne veut que les nombre numberic
+     _method: GET   #on ne veut que le GET
